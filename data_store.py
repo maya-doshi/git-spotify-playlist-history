@@ -30,7 +30,7 @@ def m3u_gen(path, playlist):
         ])
         for song in playlist['songs']:
             m3u.writelines([
-                "\n#EXTINF:" + str(int(song['duration_ms'] / 1000)) + "," + song['artists'][0]['name'] + " - " + song['name'] + "\n",
+                "\n\n#EXTINF:" + str(int(song['duration_ms'] / 1000)) + "," + song['artists'][0]['name'] + " - " + song['name'] + "\n",
                 "#EXTALB:" + song['album']['name'] + " (" + str(song['album']['year']) + ")" + "\n",
                 song['url']
             ])
