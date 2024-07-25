@@ -31,7 +31,6 @@ def get_album(album):
         'name': album['name'],
         'artists': get_artists(album['artists']),
         'year': utils.iso_to_year(album['release_date']),
-        'cover': get_image_url(album['images']),
         'track_count': album['total_tracks'],
         'url': album['external_urls']['spotify'],
     }
@@ -69,7 +68,6 @@ def get_playlist(playlist, songs):
         'url': playlist['external_urls']['spotify'],
         'name': playlist['name'],
         'description': playlist['description'],
-        # 'cover': get_image_url(playlist['images']),
         'length': playlist['tracks']['total'],
         'duration': utils.get_duration(songs),
         'last_modified': utils.latest_change(songs),
