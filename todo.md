@@ -1,0 +1,2 @@
+- [ ] Private Playlists
+- [ ] Clean up and remove shortcuts
