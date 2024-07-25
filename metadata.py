@@ -69,7 +69,7 @@ def get_playlist(playlist, songs):
         'url': playlist['external_urls']['spotify'],
         'name': playlist['name'],
         'description': playlist['description'],
-        'cover': get_image_url(playlist['images']),
+        # 'cover': get_image_url(playlist['images']),
         'length': playlist['tracks']['total'],
         'duration': utils.get_duration(songs),
         'last_modified': utils.latest_change(songs),
