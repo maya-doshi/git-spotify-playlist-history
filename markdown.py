@@ -12,9 +12,10 @@ def playlist(playlist):
     description = "_" + playlist['description'] + "_\n\n" if playlist['description'] else ""
     marky = [
         "# [" + playlist['name'] + "](" + playlist['url'] +")\n\n",
-        "![Cover](../" + consts.DATA_PATH + "/" + playlist['id'] + "/" + "cover.jpg)\n\n",
+        "![Cover](../" + consts.DATA_PATH + "/" + playlist['id'] + "/cover.jpg)\n\n",
         description,
         str(playlist['length']) + " songs - " + str(int(playlist['duration'] / 60000)) + " minutes\n\n",
+        "[M3U](../"+ consts.DATA_PATH + "/" + playlist['id'] + "/playlist.m3u)\n\n",
         "## Songs",
     ]
     for i, song in enumerate(playlist['songs']):
