@@ -3,6 +3,7 @@ import markdown
 import data_store
 import metadata
 import version
+import consts
 
 import logging
 import spotipy
@@ -17,7 +18,7 @@ version.check_repo()
 data_store.clear()
 markdown.clear()
 
-playlists = sp.user_playlists('y941c648mxcdiffdonje6y750')
+playlists = sp.user_playlists(consts.SPOTIFY_USER)
 playlist_datas = []
 
 while playlists:

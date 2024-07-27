@@ -7,7 +7,7 @@ from urllib import request
 import logging
 import os
 
-data_store  = os.path.join(consts.REPO_PATH, consts.DATA_PATH)
+data_store  = os.path.join(consts.REPO_PATH, consts.DATA_FOLDER)
 
 def playlist_data_dir(playlist_id):
     utils.check_dir(data_store)

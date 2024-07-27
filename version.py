@@ -28,8 +28,8 @@ def stage_all():
     repo.git.reset('HEAD', '.')
     logging.info('Staging all files')
     repo.git.add(consts.BASE_MD)
-    repo.git.add(consts.DATA_PATH)
-    repo.git.add(consts.PLAYLIST_PATH)
+    repo.git.add(consts.DATA_FOLDER)
+    repo.git.add(consts.PLAYLIST_FOLDER)
     return repo.index.diff('HEAD')
 
 def commit():
