@@ -35,10 +35,9 @@ def get_album(album):
         'url': album['external_urls']['spotify'],
     }
 
-def get_song(song, pos):
+def get_song(song):
     track = song['track']
     return {
-        'position': pos,
         'date_added': song['added_at'],
         'added_by': {
             #'name': song['added_by']['display_name'],
@@ -57,8 +56,8 @@ def get_song(song, pos):
 
 def get_songs(songs):
     songs_out = []
-    for i, song in enumerate(songs['items']):
-        songs_out.append(get_song(song, i + 1))
+    for song in songs['items']:
+        songs_out.append(get_song(song))
     return songs_out
 
 def get_playlist(playlist, songs):
