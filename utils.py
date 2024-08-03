@@ -22,29 +22,33 @@ def latest_change(songs):
 def arist_list(arists):
     return ", ".join(artist['name'] for artist in arists)
 
-def monYR_conv(name):
+def monYR(playlist):
+    name = playlist['name']
     year = "20" + name[-2:]
     try:
         int(year)
     except:
-        return None
+        return (None, playlist)
 
     month = name[:-2]
 
     month_num = consts.MONTH_MAP.get(month.lower(), None)
     if month_num == None:
-        return None
+        return (None, playlist)
 
-    return year + "-" + str(month_num)
+    return (year + "-" + str(month_num), playlist)
 
 def monthly_playlists(playlists):
-    playlists = [(monYR_conv(playlist['name']), playlist) for playlist in playlists]
-    # months = filter(lambda x: x[0] != None, months)
-    months = []
-    non_months = []
-    for playlist in playlists:
-        if playlist[0] == None:
-            non_months.append(playlist[1])
-        else:
-            months.append(playlist[1])
-    return months, non_months
+    playlists = list(map(monYR, playlists))
+
+    months = list(map(
+        lambda x: x[1],
+        sorted(
+            filter(lambda x: x[0] != None, playlists),
+            key=lambda x: x[0], reverse=True)))
+
+    playlists = list(map(
+        lambda x: x[1],
+        filter(lambda x: x[0] == None, playlists)))
+
+    return months, playlists
