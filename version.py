@@ -2,6 +2,8 @@ from git import Repo
 import logging
 import os
 import consts
+import datetime
+import time
 import shutil
 
 def reset_repo():
@@ -35,7 +37,8 @@ def stage_all():
 def commit():
     repo = Repo(consts.REPO_PATH)
     logging.info('Committing')
-    repo.index.commit('Update')
+    tz = time.tzname[0]
+    repo.index.commit(datetime.datetime.now().strftime(f"%H:%M {tz} %B %d, %Y"))
 
 def push():
     repo = Repo(consts.REPO_PATH)
