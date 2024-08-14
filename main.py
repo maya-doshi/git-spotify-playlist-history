@@ -25,7 +25,7 @@ while playlists:
     for playlist in playlists['items']:
         id = playlist['id']
         url = metadata.get_image_url(playlist['images'])
-        playlist_data = metadata.get_playlist(playlist, sp.playlist_items(id))
+        playlist_data = metadata.get_playlist(playlist, sp.playlist_items(id), sp)
         data_store.playlist(id, playlist_data, url)
         markdown.playlist(playlist_data)
         playlist_datas.append(playlist_data)

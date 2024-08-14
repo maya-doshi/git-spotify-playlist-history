@@ -54,14 +54,20 @@ def get_song(song):
         'album': get_album(track['album']),
     }
 
-def get_songs(songs):
+def get_songs(songs, sp):
     songs_out = []
-    for song in songs['items']:
+
+    tracks = songs['items']
+    while songs['next']:
+        songs = sp.next(songs)
+        tracks.extend(songs['items'])
+
+    for song in tracks:
         songs_out.append(get_song(song))
     return songs_out
 
-def get_playlist(playlist, songs):
-    songs = get_songs(songs)
+def get_playlist(playlist, songs, sp):
+    songs = get_songs(songs, sp)
     return {
         'id': playlist['id'],
         'url': playlist['external_urls']['spotify'],
