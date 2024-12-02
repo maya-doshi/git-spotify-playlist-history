@@ -25,6 +25,8 @@ playlist_datas = []
 
 while playlists:
     for playlist in playlists["items"]:
+        if playlist is None:
+            continue
         id = playlist["id"]
         url = metadata.get_image_url(playlist["images"])
         playlist_data = metadata.get_playlist(playlist, sp.playlist_items(id), sp)
