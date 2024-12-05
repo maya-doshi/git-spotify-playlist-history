@@ -42,7 +42,7 @@ def monYR(playlist):
     if month_num == None:
         return (None, playlist)
 
-    return (year + "-" + str(month_num), playlist)
+    return (year + "-" + f"{month_num:02}", playlist)
 
 
 def monthly_playlists(playlists):
