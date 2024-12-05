@@ -52,8 +52,11 @@ def monthly_playlists(playlists):
         map(
             lambda x: x[1],
             sorted(
-                filter(lambda x: x != None, playlists),
-                key=lambda x: x,
+                map(
+                    lambda x: (int(x[0].replace('-', '')), x[1]),
+                    filter(lambda x: x[0] != None, playlists),
+                ),
+                key=lambda x: x[0],
                 reverse=True,
             ),
         )
