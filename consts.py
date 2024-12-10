@@ -1,7 +1,7 @@
 # EDIT THESE
-SPOTIFY_USER = "y941c648mxcdiffdonje6y750"
-NAME = "maya"
-REPO_PATH = "./git-testing"  # Preferably absolute path
+SPOTIFY_USER = ""
+NAME = ""
+REPO_PATH = ""  # Preferably absolute path
 
 # Folder and file names
 BASE_MD = "README.md"
